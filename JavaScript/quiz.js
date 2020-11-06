@@ -104,13 +104,16 @@ function render(questionIndex) {
         var userC = questions[questionIndex].choices;
         quizGo.textContent = userQ;
     }
-    //Be sure to reference webpage in Readme - https://dmitripavlutin.com/foreach-iterate-array-javascript/#:~:text=forEach()%20method%20iterates%20over,this%20set%20in%20the%20callback.
-    userC.forEach(function (newLi) {
-        var listItem = document.createElement("li");
-        listItem.textContent = newLi;
+    //Be sure to reference webpage in Readme - https://dmitripavlutin.com/foreach-iterate-array-javascript/#:~:text=forEach()%20method%20iterates%20over,this%20set%20in%20the%20callback, https://alligator.io/js/foreach-vs-for-loops/
+    userC.forEach(function (newBtn) {
+        var listItem = document.createElement("button");
+        listItem.textContent = newBtn;
         quizGo.appendChild(answerUl);
         answerUl.appendChild(listItem);
-
+        //Function for comparing answer choices/Event Listener 
         })
     }
+
+    //Compare answer choices
+
 
