@@ -79,26 +79,38 @@ var interval;
 
 //Onclick, timer should display on screen - works!
 start.addEventListener("click", startTimer)
-//startTimer - works!
+//startTimer - works!, dont forget to add render(questionIndex)
 function startTimer() {
     interval = setInterval(function () {
         quizTime--;
         timer.textContent = "Time: " + quizTime;
-    if (quizTime <= 0 ){
-       clearInterval(interval);
-       timer.textContent = "Game Over!"
-         }
+        if (quizTime <= 0) {
+            clearInterval(interval);
+            timer.textContent = "Game Over!"
+        }
     }, 1000);
-//Function for question index.
+
+    render(questionIndex);
 }
 
-// function render(questionIndex){
-// //Clears what div
-// quizGo.innerHTML = "";
-// answerUl
+//Renders questions & choices
+function render(questionIndex) {
+    //Clears out existing div data.
+    quizGo.innerHTML = "";
+    answerUl.innerHTML = "";
+    //For loop for data in array.
+    for (var i = 0; i < questions.length; i++) {
+        var userQ = questions[questionIndex].question;
+        var userC = questions[questionIndex].choices;
+        quizGo.textContent = userQ;
+    }
+    //Be sure to reference webpage in Readme - https://dmitripavlutin.com/foreach-iterate-array-javascript/#:~:text=forEach()%20method%20iterates%20over,this%20set%20in%20the%20callback.
+    userC.forEach(function (newLi) {
+        var listItem = document.createElement("li");
+        listItem.textContent = newLi;
+        quizGo.appendChild(answerUl);
+        answerUl.appendChild(listItem);
 
-
-
-// }
-
+        })
+    }
 
