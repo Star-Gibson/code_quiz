@@ -65,5 +65,6 @@ var questions = [
 //Global Variables:
 var start = document.querySelector("#start");
 var timer = document.querySelector("#timer");
-var quizGo = document.querySelector("#quizGo")
+var quizGo = document.querySelector("#quizGo");
 var answerUl = document.createElement("ul");
+
