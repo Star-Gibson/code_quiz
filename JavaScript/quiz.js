@@ -106,6 +106,7 @@ function render(questionIndex) {
     }
     //Be sure to reference webpage in Readme - https://dmitripavlutin.com/foreach-iterate-array-javascript/#:~:text=forEach()%20method%20iterates%20over,this%20set%20in%20the%20callback, https://alligator.io/js/foreach-vs-for-loops/
     userC.forEach(function (newBtn) {
+        document.createElement("li");
         var listItem = document.createElement("button");
         listItem.textContent = newBtn;
         quizGo.appendChild(answerUl);
