@@ -67,4 +67,38 @@ var start = document.querySelector("#start");
 var timer = document.querySelector("#timer");
 var quizGo = document.querySelector("#quizGo");
 var answerUl = document.createElement("ul");
+var score = 0;
+var questionIndex = 0;
+//quizTime = # of questions * 5 sec/ea
+var quizTime = 100;
+// 
+
+// addTime = 5 sec penalty
+var subTime = 5;
+var interval;
+
+//Onclick, timer should display on screen - works!
+start.addEventListener("click", startTimer)
+//startTimer - works!
+function startTimer() {
+    interval = setInterval(function () {
+        quizTime--;
+        timer.textContent = "Time: " + quizTime;
+    if (quizTime <= 0 ){
+       clearInterval(interval);
+       timer.textContent = "Game Over!"
+         }
+    }, 1000);
+//Function for question index.
+}
+
+// function render(questionIndex){
+// //Clears what div
+// quizGo.innerHTML = "";
+// answerUl
+
+
+
+// }
+
 
