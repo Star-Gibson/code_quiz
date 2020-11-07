@@ -171,7 +171,21 @@ createBr.setAttribute ("id", "createBr");
 
 quizGo.appendChild(createBr);
 
-//
+//Creating Label "Enter intials" -- https://www.w3schools.com/tags/tag_input.asp
+var createLa = document.createElement("label");
+createLa.setAttribute ("id", "createLa ");
+createLa.textContentContent = "Enter initials:";
+
+quizGo.appendChild(createLa);
+
+//Input for input -- https://www.w3schools.com/tags/tag_input.asp
+var imput = document.createElement("input");
+input.setAttribute ("id", "input");
+input.setAttribute ("type", "text");
+input.textContent = ""; 
+
+quizGo.appendChild(input);
+
 
 
 
