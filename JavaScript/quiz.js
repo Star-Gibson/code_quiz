@@ -70,6 +70,7 @@ var answerUl = document.createElement("ul");
 var score = 0;
 var questionIndex = 0;
 
+
 //quizTime = # of questions * 5 sec/ea
 var quizTime = 100;
 // 
@@ -138,9 +139,13 @@ function comparison(event) {
   
     questionIndex++;
     //Statement to end quiz
+    //Defined newScore Variable
+    var newQuizTime = quizTime - interval;
+    var newScore = newQuizTime;
+    
     if (questionIndex >= questions.length)
     { 
-        newDiv.textContent = "End of quiz!" + "" + "You got a " + score;
+        newDiv.textContent = "End of quiz!" + "" + "You got a " + newScore;
     }
     //Otherwise continue quiz
      else {
