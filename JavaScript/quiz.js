@@ -79,9 +79,9 @@ var quizTime = 100;
 var subTime = 5;
 var interval;
 
-//Onclick, timer should display on screen - works!
+//Onclick, timer should display
 start.addEventListener("click", startTimer)
-//startTimer - works!, dont forget to add render(questionIndex)
+//startTimer 
 function startTimer() {
     interval = setInterval(function () {
         quizTime--;
@@ -107,14 +107,14 @@ function render(questionIndex) {
         var userC = questions[questionIndex].choices;
         quizGo.textContent = userQ;
     }
-    //Be sure to reference webpage in Readme - https://dmitripavlutin.com/foreach-iterate-array-javascript/#:~:text=forEach()%20method%20iterates%20over,this%20set%20in%20the%20callback, https://alligator.io/js/foreach-vs-for-loops/
+
     userC.forEach(function (newBtn) {
         document.createElement("li");
         var listItem = document.createElement("button");
         listItem.textContent = newBtn;
         quizGo.appendChild(answerUl);
         answerUl.appendChild(listItem);
-        //Function for comparing answer choices/Event Listener 
+        //Event Listener - Comparison
         listItem.addEventListener("click", (comparison))
     })
 }
@@ -180,14 +180,14 @@ function finished() {
         quizGo.appendChild(scorePara);
     }
 
-    //Creating Label "Enter intials" -- https://www.w3schools.com/tags/tag_input.asp
+    //Creating Label
     var createLa = document.createElement("label");
     createLa.setAttribute("id", "createLa ");
     createLa.textContent = "Enter initials: ";
 
     quizGo.appendChild(createLa);
 
-    //Input for input -- https://www.w3schools.com/tags/tag_input.asp
+    //Creating Input
     var input = document.createElement("input");
     input.setAttribute("id", "input");
     input.setAttribute("type", "text");
@@ -196,7 +196,7 @@ function finished() {
     quizGo.appendChild(input);
 
 
-    //Submit Button 
+    // Creating Submit Button 
     var submit = document.createElement("button");
     submit.setAttribute("id", "submit");
     submit.setAttribute("type", "submit");

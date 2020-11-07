@@ -9,7 +9,7 @@ localStorage.clear();
 location.reload();
 });
 
-//Retrieving Local Storage -- Figured it out! Thought you had to redifine the variable, but since pages are connected must use original highscore from quiz.js. - https://www.w3.org/wiki/JavaScript_best_practices
+//Retrieving Local Storage 
 var highscores = localStorage.getItem("highscores")
 highscores = JSON.parse(highscores);
 
