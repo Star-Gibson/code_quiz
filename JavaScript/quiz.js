@@ -88,6 +88,7 @@ function startTimer() {
         timer.textContent = "Time: " + quizTime;
         if (quizTime <= 0) {
             clearInterval(interval);
+            finished();
             timer.textContent = "Game Over!"
         }
     }, 1000);
@@ -141,6 +142,7 @@ function comparison(event) {
 
     //Statement to end quiz
     if (questionIndex >= questions.length) {
+        finished();
         newDiv.textContent = "End of quiz!" + "" + "You got a " + score;
     }
     //Otherwise continue quiz
@@ -152,44 +154,87 @@ function comparison(event) {
 }
 
 //Finished will append Final Page/Enter Score
-//Defined newScore Variable
-// var newQuizTime = quizTime - interval;
-// var newScore = newQuizTime;
+function finished() {
+    quizGo.innerHTML = "";
+    timer.innerHTML = "";
+    //New Heading
+    var createHead = document.createElement("h2")
+    createHead.setAttribute("id", "createHead");
+    createHead.textContent = "Congratulations you have completed the Code Quiz!"
+    quizGo.appendChild(createHead);
 
-function finished (){
-quizGo.innerHTML = "";
-timer.innerHTML = "";
- //New Heading
-var createHead = document.createElement("h2")
-createHead.setAttribute ("id","createHead");
-createHead.textContent = "Congratulations you have completed the Code Quiz!"
-quizGo.appendChild(createHead);
+    //Break for spacing
+    var createBr = document.createElement("br");
+    createBr.setAttribute("id", "createBr");
 
-//Break for spacing
-var createBr = document.createElement("br");
-createBr.setAttribute ("id", "createBr");
+    quizGo.appendChild(createBr);
 
-quizGo.appendChild(createBr);
+    //NewScore
+    if (quizTime >= 0) {
+        var newScore = quizTime - interval;
+        var scorePara = document.createElement("p");
+        scorePara.setAttribute("id", "scorePara");
+        scorePara.textContent = "Final Score: " + newScore;
 
-//Creating Label "Enter intials" -- https://www.w3schools.com/tags/tag_input.asp
-var createLa = document.createElement("label");
-createLa.setAttribute ("id", "createLa ");
-createLa.textContentContent = "Enter initials:";
+        quizGo.appendChild(scorePara);
+    }
 
-quizGo.appendChild(createLa);
+    //Creating Label "Enter intials" -- https://www.w3schools.com/tags/tag_input.asp
+    var createLa = document.createElement("label");
+    createLa.setAttribute("id", "createLa ");
+    createLa.textContentContent = "Enter initials:";
 
-//Input for input -- https://www.w3schools.com/tags/tag_input.asp
-var imput = document.createElement("input");
-input.setAttribute ("id", "input");
-input.setAttribute ("type", "text");
-input.textContent = ""; 
+    quizGo.appendChild(createLa);
 
-quizGo.appendChild(input);
+    //Input for input -- https://www.w3schools.com/tags/tag_input.asp
+    var input = document.createElement("input");
+    input.setAttribute("id", "input");
+    input.setAttribute("type", "text");
+    input.textContent = "";
 
-
-
+    quizGo.appendChild(input);
 
 
+    //Submit Button 
+    var submit = document.createElement("button");
+    submit.setAttribute("id", "submit");
+    submit.setAttribute("type", "submit");
+    submit.textContent = "Submit";
+
+    quizGo.appendChild(submit);
+
+    //Event Listener - Submit
+    submit.addEventListener("click", function () {
+        var initials = input.value;
+
+        if (initials === null) {
+            alert("Please Enter Value");
+        }
+
+        else {
+            var final = {
+                initials: initials,
+                score: newScore
+            }
+            console.log(final)
+            var highscores = localStorage.getItem("highscores")
+            if (highscores === null) {
+                highscore = [];
+            }
+            else {
+                highscores = JSON.parse(highscores);
+            }
+            highscores.push(final);
+            var logScore = JSON.stringify(highscores);
+            localStorage.setItem("highscores", logScore);
+
+            //Takes us to highscores.html
+            window.location.replace("../highscore.html");
+
+
+        }
+
+    });
 
 }
 
