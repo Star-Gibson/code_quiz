@@ -136,26 +136,29 @@ function comparison(event) {
             newDiv.textContent = "Wrong!";
         }
     }
-  
+
     questionIndex++;
-   
+
     //Defined newScore Variable
     var newQuizTime = quizTime - interval;
     var newScore = newQuizTime;
-     //Statement to end quiz
-    if (questionIndex >= questions.length)
-    { 
-        newDiv.textContent = "End of quiz!" + "" + "You got a " + newScore;
+    //Statement to end quiz
+    if (questionIndex >= questions.length) {
+        newDiv.textContent = "End of quiz!" + "" + "You got a " + score;
     }
     //Otherwise continue quiz
-     else {
-         render(questionIndex);
-     }
-     quizGo.appendChild(newDiv);
+    else {
+        render(questionIndex);
+    }
+    quizGo.appendChild(newDiv);
 
 }
 
 //Finished will append Final Page/Enter Score
+//Defined newScore Variable
+// var newQuizTime = quizTime - interval;
+// var newScore = newQuizTime;
 
-    
+
+
 
