@@ -230,7 +230,7 @@ function finished() {
             localStorage.setItem("highscores", logScore);
 
             //Takes us to highscores.html
-            window.location.replace("../HTML/highscore.html");
+            window.location.replace("highscore.html");
 
 
         }
