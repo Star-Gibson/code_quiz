@@ -65,7 +65,7 @@ var questions = [
 //Global Variables:
 var start = document.querySelector("#start");
 var timer = document.querySelector("#timer");
-var quizGo = document.getElementById("quizGo");
+var quizGo = document.querySelector("#quizGo");
 var answerUl = document.createElement("ul");
 var score = 0;
 var questionIndex = 0;
@@ -120,19 +120,19 @@ function render(questionIndex) {
 //Compare answer choices
 function comparison(event) {
     var element = event.target;
-    if (element.matches("li")) {
+    if (element.matches("button")) {
 
         var newDiv = document.createElement("div");
         newDiv.setAttribute("id", "newDiv");
         //Correct Answer
-        if (parseInt(element.textContent) == questions[questionIndex].answerIndex) {
+        if (element.textContent == questions[questionIndex].answerIndex) {
             score++;
             newDiv.textContent = "Correct!";
         }
         //Incorrect Answer - deducts 5 seconds
         else {
             quizTime = quizTime - subTime;
-            newDiv.textContent = "Wrong!"
+            newDiv.textContent = "Wrong!";
         }
     }
   
