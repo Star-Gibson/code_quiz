@@ -209,7 +209,7 @@ function finished() {
         var initials = input.value;
 
         if (initials === null) {
-            alert("Please Enter Value");
+            return "Do not leave empty"
         }
 
         else {
@@ -220,7 +220,7 @@ function finished() {
             console.log(final)
             var highscores = localStorage.getItem("highscores")
             if (highscores === null) {
-                highscore = [];
+                highscores = [];
             }
             else {
                 highscores = JSON.parse(highscores);
@@ -230,7 +230,7 @@ function finished() {
             localStorage.setItem("highscores", logScore);
 
             //Takes us to highscores.html
-            window.location.replace("../highscore.html");
+            window.location.replace("../HTML/highscore.html");
 
 
         }
