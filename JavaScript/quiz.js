@@ -143,7 +143,7 @@ function comparison(event) {
     //Statement to end quiz
     if (questionIndex >= questions.length) {
         finished();
-        newDiv.textContent = "End of quiz!" + "" + "You got a " + score;
+        newDiv.textContent = "End of quiz!" + " " + "You got a " + quizTime;
     }
     //Otherwise continue quiz
     else {
@@ -172,6 +172,7 @@ function finished() {
     //NewScore
     if (quizTime >= 0) {
         var newScore = quizTime - interval;
+        clearInterval(interval);
         var scorePara = document.createElement("p");
         scorePara.setAttribute("id", "scorePara");
         scorePara.textContent = "Final Score: " + newScore;
@@ -182,7 +183,7 @@ function finished() {
     //Creating Label "Enter intials" -- https://www.w3schools.com/tags/tag_input.asp
     var createLa = document.createElement("label");
     createLa.setAttribute("id", "createLa ");
-    createLa.textContentContent = "Enter initials:";
+    createLa.textContent = "Enter initials: ";
 
     quizGo.appendChild(createLa);
 
