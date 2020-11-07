@@ -25,5 +25,5 @@ for (var i = 0; i < highscores.length; i++){
 }
 //Event Listener - goBack
 goBack.addEventListener("click", function () {
-    window.location.replace("quiz.html");
+    window.location.replace("index.html");
 });
