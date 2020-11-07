@@ -10,7 +10,7 @@ var questions = [
         question: "Where is the correct place to insert the <script> tag within HTML?",
         choices: ["A. The <body> section", "B. Both the <head> section and the <body> section", "C. The <head> section", "D. The <footer> section"],
 
-        answerIndex: "B. Both the <head> section and the <body> section"
+        answerIndex: "A. The <body> section"
     },
     {   //3
         question: "How would you prompt an alert in the user's web browswer?",
