@@ -156,6 +156,27 @@ function comparison(event) {
 // var newQuizTime = quizTime - interval;
 // var newScore = newQuizTime;
 
+function finished (){
+quizGo.innerHTML = "";
+timer.innerHTML = "";
+ //New Heading
+var createHead = document.createElement("h2")
+createHead.setAttribute ("id","createHead");
+createHead.textContent = "Congratulations you have completed the Code Quiz!"
+quizGo.appendChild(createHead);
 
+//Break for spacing
+var createBr = document.createElement("br");
+createBr.setAttribute ("id", "createBr");
+
+quizGo.appendChild(createBr);
+
+//
+
+
+
+
+
+}
 
 
