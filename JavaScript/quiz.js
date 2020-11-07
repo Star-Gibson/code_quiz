@@ -139,9 +139,6 @@ function comparison(event) {
 
     questionIndex++;
 
-    //Defined newScore Variable
-    var newQuizTime = quizTime - interval;
-    var newScore = newQuizTime;
     //Statement to end quiz
     if (questionIndex >= questions.length) {
         newDiv.textContent = "End of quiz!" + "" + "You got a " + score;
