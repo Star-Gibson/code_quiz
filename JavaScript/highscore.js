@@ -9,16 +9,16 @@ localStorage.clear();
 location.reload();
 });
 
-//Retrieving Local Storage -- Cant get to it to create newLi in html for some reason (troubleshooting)
-var final = localStorage.getItem("final");
-final = JSON.parse(final);
+//Retrieving Local Storage -- Figured it out! Thought you had to redifine the variable, but since pages are connected must use original highscore from quiz.js. - https://www.w3.org/wiki/JavaScript_best_practices
+var highscores = localStorage.getItem("highscores")
+highscores = JSON.parse(highscores);
 
-if (final !== null){
+if (highscores !== null){
 
-for (var i = 0; i < final.length; i++){
+for (var i = 0; i < highscores.length; i++){
 
     var newLi = document.createElement("li");
-    newLi.textContent = final[i].initials + " " + final[i].score;
+    newLi.textContent = highscores[i].initials + " " + highscores[i].score;
     results.appendChild(newLi);
 }    
 
