@@ -65,10 +65,11 @@ var questions = [
 //Global Variables:
 var start = document.querySelector("#start");
 var timer = document.querySelector("#timer");
-var quizGo = document.querySelector("#quizGo");
+var quizGo = document.getElementById("quizGo");
 var answerUl = document.createElement("ul");
 var score = 0;
 var questionIndex = 0;
+var answerIndex = 0;
 //quizTime = # of questions * 5 sec/ea
 var quizTime = 100;
 // 
@@ -112,9 +113,41 @@ function render(questionIndex) {
         quizGo.appendChild(answerUl);
         answerUl.appendChild(listItem);
         //Function for comparing answer choices/Event Listener 
-        })
+        listItem.addEventListener("click", (comparison))
+    })
+}
+
+//Compare answer choices
+function comparison(event) {
+    var element = event.target;
+    if (element.matches("li")) {
+
+        var newDiv = document.createElement("div");
+        newDiv.setAttribute("id", "newDiv");
+        //Correct Answer
+        if (parseInt(element.textContent) == questions[questionIndex].answerIndex) {
+            score++;
+            newDiv.textContent = "Correct!";
+        }
+        //Incorrect Answer - deducts 5 seconds
+        else {
+            quizTime = quizTime - subTime;
+            newDiv.textContent = "Wrong!"
+        }
     }
+  
+    questionIndex++;
 
-    //Compare answer choices
+    if (questionIndex >= questions.length)
+    {///Function to complete quiz
+        newDiv.textContent = "End of quiz!" + "" + "You got " + score + questions.length + "Correct!";
+    }
+    //Otherwise continue quiz
+     else {
+         render(questionIndex);
+     }
+     quizGo.appendChild(newDiv);
 
+}
+    
 
